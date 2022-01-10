@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import Env from "../Env"
 import checkAuth from "../../module/checkauth"
+import cookies from "../../module/cookies"
 
 const Nav = () => {
 
@@ -12,6 +13,7 @@ const Nav = () => {
         fetch(Env.BackEnd, checkAuth()).then(r => r.json()).then((res) => {
 
             if (!res.user_auth) {
+                cookies.deleteCookie("USER_TOKEN")
                 window.location.href = "/"
             }
 

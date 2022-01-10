@@ -1,3 +1,5 @@
+import Env from "../components/Env"
+
 const setCookie = (cname, cvalue, exdays) => {
 
     const d = new Date();
@@ -5,9 +7,11 @@ const setCookie = (cname, cvalue, exdays) => {
     let expires = "expires=" + d.toUTCString();
 
     if (exdays !== null) {
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";domain=" + Env.cookie[1] + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";domain=" + Env.cookie[0] + ";path=/";
     } else {
-        document.cookie = cname + "=" + cvalue + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";domain=" + Env.cookie[1] + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";domain=" + Env.cookie[0] + ";path=/";
     }
 
 }
@@ -32,7 +36,8 @@ const getCookie = (cname) => {
 
 const deleteCookie = (cname) => {
 
-    document.cookie = cname + "=" + "; expires=Thu, 01 Jan 1970 00:00:00;path=/";
+    document.cookie = cname + "=" + "; expires=Thu, 01 Jan 1970 00:00:00;" + "domain=" + Env.cookie[0] + ";path=/";
+    document.cookie = cname + "=" + "; expires=Thu, 01 Jan 1970 00:00:00;" + "domain=" + Env.cookie[1] + ";path=/";
 
 }
 

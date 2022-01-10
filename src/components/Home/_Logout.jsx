@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import Env from "../Env"
 import checkAuth from "../../module/checkauth"
+import cookies from "../../module/cookies"
 
 const Logout = () => {
 
@@ -8,6 +9,7 @@ const Logout = () => {
 
         fetch(Env.BackEnd + "logout", checkAuth()).then(b => b.json()).then((r) => {
             if (r.success) {
+                cookies.deleteCookie("USER_TOKEN")
                 window.location.href = "/"
             }
             console.log(r);
