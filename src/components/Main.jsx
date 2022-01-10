@@ -5,18 +5,16 @@ import "./assets/vendor/nucleo/css/nucleo.css"
 
 import App from './App/App'
 import Home from './Home/Home'
+import Error404 from './App/_Error404'
 
 const Main = () => {
 
     return (
         <>
             <Routes>
-
-                <Route path="/*" element={<Home />} />
                 <Route path="/dashboard/*" element={<App />} />
-
+                <Route path="/*" element={<Home />} />
             </Routes>
-            
         </>
     )
 

@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Redirect } from 'react-router-dom'
 import Header from './_Header'
 import Footer from './_Footer'
 import FrontPage from './_FrontPage'
@@ -10,6 +10,7 @@ import Logout from './_Logout'
 import Error404 from './_Error404'
 import Verify from './_Verify'
 import ResetPass from './_ResetPass'
+import RedirectPage from './_RedirectPage'
 
 const Home = () => {
 
@@ -28,6 +29,7 @@ const Home = () => {
                         <Route path="/services" element={<NewPass />} />
                         <Route path="/verify/:email/:code" element={<Verify />} />
                         <Route path="/fp/:email/:code" element={<ResetPass />} />
+                        <Route path="/:page/:link" element={<RedirectPage />} />
                         <Route path="/*" element={<Error404 />} />
                     </Routes>
 

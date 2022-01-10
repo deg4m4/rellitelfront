@@ -204,19 +204,19 @@ const Links = () => {
                                                                 var lC = pList.links_data[w].l_visible == 3 ? "disabled" : ""
                                                                 return (
                                                                     <>
-                                                                        <a type="button" target="_blank" href={Env.MainUrl + "/" + pList.page_name + "/" + pList.links_data[w].l_slug} class={"text-white btn btn-sm btn-default " + lC}>
+                                                                        <a type="button" target="_blank" href={Env.PageLink + pList.page_name + "/" + pList.links_data[w].l_slug} class={"text-white btn btn-sm btn-default " + lC}>
                                                                             Open <i className="fa fa-external-link-alt"></i>
                                                                         </a>
                                                                         {(() => {
                                                                             if (pList.links_data[w].l_visible == 3) {
                                                                                 return (
-                                                                                    <button onClick={copyURI} type="button" disabled go={Env.MainUrl + pList.page_name + "/" + pList.links_data[w].l_slug} class="text-white btn btn-sm btn-default">
+                                                                                    <button onClick={copyURI} type="button" disabled go={Env.PageLink + pList.page_name + "/" + pList.links_data[w].l_slug} class="text-white btn btn-sm btn-default">
                                                                                         <i className="far fa-copy"></i>
                                                                                     </button>
                                                                                 )
                                                                             } else {
                                                                                 return (
-                                                                                    <button onClick={copyURI} type="button" go={Env.MainUrl + pList.page_name + "/" + pList.links_data[w].l_slug} class="text-white btn btn-sm btn-default">
+                                                                                    <button onClick={copyURI} type="button" go={Env.PageLink + pList.page_name + "/" + pList.links_data[w].l_slug} class="text-white btn btn-sm btn-default">
                                                                                         <i className="far fa-copy"></i>
                                                                                     </button>
                                                                                 )
