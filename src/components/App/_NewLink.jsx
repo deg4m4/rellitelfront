@@ -175,7 +175,7 @@ const NewLink = () => {
     }
 
     const copyUrl = () => {
-        var uX = document.getElementById("link_url_x").getAttribute("href");
+        var uX = document.getElementById("link_url_x").innerHTML;
         navigator.clipboard.writeText(uX);
     }
 

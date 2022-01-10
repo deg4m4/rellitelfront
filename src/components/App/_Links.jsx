@@ -60,9 +60,9 @@ const Links = () => {
 
     }, [getParams])
 
-    function copyURI(e) {
+/*     function copyURI(e) {
         navigator.clipboard.writeText(e.target.getAttribute("go"));
-    }
+    } */
 
     function tConvert(time) {
         time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
@@ -126,7 +126,7 @@ const Links = () => {
                                 })()}
                             </div>
                             <div class="table-responsive">
-                                
+
 
                                 <table id="link_tb" class="table align-items-center table-flush">
                                     {(() => {
@@ -195,9 +195,9 @@ const Links = () => {
                                                             <a type="button" target="_blank" href={pList.links_data[w].l_uri} class="text-white btn btn-sm btn-default">
                                                                 Open <i className="fa fa-external-link-alt"></i>
                                                             </a>
-                                                            <button onClick={copyURI} type="button" go={pList.links_data[w].l_uri} class="text-white btn btn-sm btn-default">
+                                                            {/*  <button onClick={copyURI} type="button" go={pList.links_data[w].l_uri} class="text-white btn btn-sm btn-default">
                                                                 <i className="far fa-copy"></i>
-                                                            </button>
+                                                            </button> */}
                                                         </td>
                                                         <td>
                                                             {(() => {
@@ -207,7 +207,7 @@ const Links = () => {
                                                                         <a type="button" target="_blank" href={Env.PageLink + pList.page_name + "/" + pList.links_data[w].l_slug} class={"text-white btn btn-sm btn-default " + lC}>
                                                                             Open <i className="fa fa-external-link-alt"></i>
                                                                         </a>
-                                                                        {(() => {
+                                                                        {/* (() => {
                                                                             if (pList.links_data[w].l_visible == 3) {
                                                                                 return (
                                                                                     <button onClick={copyURI} type="button" disabled go={Env.PageLink + pList.page_name + "/" + pList.links_data[w].l_slug} class="text-white btn btn-sm btn-default">
@@ -221,7 +221,7 @@ const Links = () => {
                                                                                     </button>
                                                                                 )
                                                                             }
-                                                                        })()}
+                                                                        })() */}
                                                                     </>
                                                                 )
                                                             })()}
@@ -321,6 +321,7 @@ const Links = () => {
                         </div>
                     </div>
                 </div>
+                <div id="clip_i">Hello</div>
                 <Footer />
             </div>
 
