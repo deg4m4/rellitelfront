@@ -178,13 +178,13 @@ const EditLink = () => {
             document.getElementById("l_des").setAttribute("placeholder", res.link_info.l_des)
 
             if (res.link_info.thu_i != "") {
-                document.getElementById("thuimg_s").src = "/images/" + res.link_info.thu_i
+                document.getElementById("thuimg_s").src = Env.SURL + "/images/" + res.link_info.thu_i
             } else {
                 document.getElementById("thuimg_c").classList.add("hide")
             }
 
             if (res.link_info.pre_i != "") {
-                document.getElementById("preimg_s").src = "/images/" + res.link_info.pre_i
+                document.getElementById("preimg_s").src = Env.SURL + "/images/" + res.link_info.pre_i
             } else {
                 document.getElementById("preimg_c").classList.add("hide")
             }

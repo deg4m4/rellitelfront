@@ -224,7 +224,7 @@ const Setting = () => {
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
-                                                <img height="70px" src={"/pagelogo/" + pageInfo.logo2} id="logo_s_1" alt="" />
+                                                <img height="70px" src={Env.SURL + "/page_logo/" + pageInfo.logo2} id="logo_s_1" alt="" />
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="form-group">
@@ -236,7 +236,7 @@ const Setting = () => {
                                                 </div>
                                             </div>
                                             <div className="col-lg-6">
-                                                <img height="70px" src={"/pagelogo/" + pageInfo.logo} id="logo_s_2" alt="" />
+                                                <img height="70px" src={Env.SURL + "/page_logo/" + pageInfo.logo} id="logo_s_2" alt="" />
                                             </div>
                                             <hr className="my-4 hide" />
                                             <h6 className="heading-small text-muted mb-4 hide">SEO Setting</h6>

@@ -4,6 +4,7 @@ const env = {
   'PageLink': "http://rellitel.ink/",
   'BackEnd': "http://back.rellitel.ink/",
   'MainUrl': "http://back.rellitel.ink/",
+  'SURL': "http://static.rellitel.ink/",
   'cookie': ["rellitel.ink", "app.rellitel.ink"],
   'BrwserCode': makeCode(20)
 }
