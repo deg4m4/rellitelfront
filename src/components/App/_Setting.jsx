@@ -256,11 +256,11 @@ const Setting = () => {
                                                 <div class="form-group">
                                                     <label for="exampleFormControlSelect1">Active Theme</label>
                                                     <select onChange={changePageInfo} class="form-control" disabled id="theme_i" >
-                                                        <option value="1">The Link</option>
-                                                        <option value="2">Linkyflix</option>
-                                                        <option value="3">Linkyflix 2</option>
-                                                        <option value="4">Linkyflix 3</option>
-                                                        <option value="5">Linkyflix 5</option>
+                                                        <option value="1">{Env.AppName}</option>
+                                                        <option value="2">{Env.AppName} Purule</option>
+                                                        <option value="3">{Env.AppName} Green</option>
+                                                        <option value="4">{Env.AppName} Red</option>
+                                                        <option value="5">{Env.AppName} Orange</option>
                                                     </select>
                                                 </div>
 
