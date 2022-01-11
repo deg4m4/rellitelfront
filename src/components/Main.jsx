@@ -5,8 +5,8 @@ import "./assets/vendor/nucleo/css/nucleo.css"
 
 import App from './App/App'
 import Home from './Home/Home'
-import Error404 from './App/_Error404'
 import FrontPage from './Home/_FrontPage'
+import ServicesPage from './Home/_Services'
 
 const Main = () => {
 
@@ -14,7 +14,7 @@ const Main = () => {
         <>
             <Routes>
                 <Route path="/dashboard/*" element={<App />} />
-                <Route path="/services" element={<FrontPage />} />
+                <Route path="/services" element={<ServicesPage />} />
                 <Route path="/" element={<FrontPage />} />
                 <Route path="/*" element={<Home />} />
             </Routes>
