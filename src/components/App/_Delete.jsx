@@ -130,13 +130,13 @@ const Delete = () => {
                 var datex = res.link_info.l_time.split(" ")[0].split("-")
                 document.getElementById("l_time").innerHTML = "<i class='far fa-calendar-alt'></i> " + parseInt(datex[1]) + "/" + parseInt(datex[2]) + "/" + datex[0] + " <i class='far fa-clock'></i> " + tConvert(timex[0] + ":" + timex[1])
                 if (res.link_info.thu_i != "") {
-                    document.getElementById("thuimg_s").src = "/images/" + res.link_info.thu_i
+                    document.getElementById("thuimg_s").src = Env.SURL + "images/" + res.link_info.thu_i
                 } else {
                     document.getElementById("thuimg_c").classList.add("hide")
                 }
 
                 if (res.link_info.pre_i != "") {
-                    document.getElementById("preimg_s").src = "/images/" + res.link_info.pre_i
+                    document.getElementById("preimg_s").src = Env.SURL + "/images/" + res.link_info.pre_i
                 } else {
                     document.getElementById("preimg_c").classList.add("hide")
                 }
