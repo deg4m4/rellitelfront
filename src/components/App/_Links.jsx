@@ -321,7 +321,6 @@ const Links = () => {
                         </div>
                     </div>
                 </div>
-                <div id="clip_i">Hello</div>
                 <Footer />
             </div>
 

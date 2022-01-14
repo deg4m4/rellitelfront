@@ -157,7 +157,7 @@ const NewLink = () => {
                 if (res.success) {
 
                     document.getElementsByClassName("link-success")[0].classList.remove("hide")
-                    document.getElementById("link_url_x").setAttribute("href", Env.MainUrl + res.link_slug);
+                    document.getElementById("link_url_x").setAttribute("href", Env.PageLink + res.link_slug);
                     document.getElementById("link_url_x").innerHTML = Env.PageLink + res.link_slug;
 
                 } else {
