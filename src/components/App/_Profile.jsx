@@ -287,7 +287,7 @@ const Profile = () => {
                                 <div className="col-lg-3 order-lg-2">
                                     <div className="card-profile-image">
                                         <a data-toggle="modal" data-target="#profileSelecter">
-                                            <img src={"/assets/img/theme/rakhi.jpg"} alt={userInfo.userfullname} className="rounded-circle userimage" />
+                                        <img src={"https://ui-avatars.com/api/?bold=true&size=256&background=random&name=" + userInfo.userfullname} alt={userInfo.userfullname} className="rounded-circle userimage" />
                                            {/*  <img src={"https://ui-avatars.com/api/?bold=true&size=256&background=random&name=" + userInfo.userfullname} alt={userInfo.userfullname} className="rounded-circle userimage" /> */}
                                         </a>
                                     </div>
