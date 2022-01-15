@@ -238,13 +238,13 @@ const Setting = () => {
                                             <div className="col-lg-6">
                                                 <img height="70px" src={Env.SURL + "/page_logo/" + pageInfo.logo} id="logo_s_2" alt="" />
                                             </div>
-                                            <hr className="my-4 hide" />
-                                            <h6 className="heading-small text-muted mb-4 hide">SEO Setting</h6>
-                                            <div className="col-lg-12 hide">
+                                            <hr className="my-4" />
+                                            <h6 className="heading-small text-muted mb-4">Share Option</h6>
+                                            <div className="col-lg-12">
                                                 <div class="custom-control custom-control custom-checkbox">
                                                     <input class="custom-control-input" onChange={changePageInfo} onClick={changePageInfo} id="seo_i" disabled type="checkbox" />
                                                     <label class="custom-control-label" for="seo_i">
-                                                        <span class="text-muted">Google SEO Ranking.</span>
+                                                        <span class="text-muted">Enable Sharing</span>
                                                     </label>
                                                 </div>
                                             </div>
