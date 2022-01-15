@@ -239,8 +239,8 @@ const Setting = () => {
                                                 <img height="70px" src={Env.SURL + "/page_logo/" + pageInfo.logo} id="logo_s_2" alt="" />
                                             </div>
                                             <hr className="my-4" />
-                                            <h6 className="heading-small text-muted mb-4">SEO Option</h6>
-                                            <div className="col-lg-12">
+                                            <h6 className="heading-small hide text-muted mb-4">SEO Option</h6>
+                                            <div className="col-lg-12 hide">
                                                 <div class="custom-control custom-control custom-checkbox">
                                                     <input class="custom-control-input" onChange={changePageInfo} onClick={changePageInfo} id="seo_i" disabled type="checkbox" />
                                                     <label class="custom-control-label" for="seo_i">

@@ -6,7 +6,7 @@ import cookies from "../../module/cookies"
 const NewLink = () => {
 
     var [getUri, setUri] = useState()
-    var [getUriD, setUriD] = useState({ l_type: "", l_uri: "", l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "" })
+    var [getUriD, setUriD] = useState({ l_type: "", l_uri: "", l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "", l_con: "" })
     var [uriInfo, sUriInfo] = useState({})
 
     const urlC = (e) => {
@@ -53,7 +53,7 @@ const NewLink = () => {
                     document.getElementById("preimg_c").classList.add("hide")
                     document.getElementById("thuimg_i").value = ""
                     document.getElementById("preimg_i").value = ""
-                    setUriD({ l_type: "", l_uri: getUri, l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "" })
+                    setUriD({ l_type: "", l_uri: getUri, l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "", l_con: "" })
                     document.getElementById("l_name").value = "";
                     document.getElementById("l_des").value = "";
                     if (res.exist) {
@@ -128,6 +128,7 @@ const NewLink = () => {
         document.getElementById("l_name").setAttribute("disabled", "")
         document.getElementById("l_type").setAttribute("disabled", "")
         document.getElementById("l_des").setAttribute("disabled", "")
+        document.getElementById("l_con").setAttribute("disabled", "")
         document.getElementById("thuimg_i").setAttribute("disabled", "")
         document.getElementById("clearthu").setAttribute("disabled", "")
         document.getElementById("preimg_i").setAttribute("disabled", "")
@@ -283,6 +284,17 @@ const NewLink = () => {
                                                 </div>
                                             </div>
 
+                                            <div className="col-md-12">
+                                                <div className="form-group">
+                                                    <label className="form-control-label">Content</label>
+                                                    <textarea class="form-control" onChange={cUriData} id="l_con" >
+
+
+
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                            
                                             <div className="col-md-12">
                                                 <div className="form-group">
                                                     <label className="form-control-label">Thumbline <a data-toggle="modal" className="text-primary" data-target="#thu-mod"><i class="far fa-question-circle"></i></a></label>

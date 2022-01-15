@@ -9,7 +9,7 @@ const EditLink = () => {
     let { linkSlug, pageNum, pageQuery } = useParams();
 
     var [getUri, setUri] = useState()
-    var [getUriD, setUriD] = useState({ l_type: "", l_name: "", l_des: "", pre_i: "", pre_e: "", pre_c: false, thu_e: "", thu_i: "", thu_c: false, l_visible: "" })
+    var [getUriD, setUriD] = useState({ l_type: "", l_name: "", l_des: "", pre_i: "", pre_e: "", pre_c: false, thu_e: "", thu_i: "", thu_c: false, l_visible: "", l_con: "" })
     var [uriInfo, sUriInfo] = useState({})
 
     const urlC = (e) => {
@@ -176,6 +176,7 @@ const EditLink = () => {
             document.getElementById("l_name").setAttribute("placeholder", res.link_info.l_name)
             document.getElementById("l_url").setAttribute("placeholder", res.link_info.l_uri)
             document.getElementById("l_des").setAttribute("placeholder", res.link_info.l_des)
+            document.getElementById("l_con").setAttribute("placeholder", res.link_info.l_con)
 
             if (res.link_info.thu_i != "") {
                 document.getElementById("thuimg_s").src = Env.SURL + "/images/" + res.link_info.thu_i
@@ -277,6 +278,17 @@ const EditLink = () => {
                                                 <div className="form-group">
                                                     <label className="form-control-label">Description</label>
                                                     <textarea className="form-control" disabled onChange={cUriData} id="l_des" >
+
+
+
+                                                    </textarea>
+                                                </div>
+                                            </div>
+
+                                            <div className="col-md-12">
+                                                <div className="form-group">
+                                                    <label className="form-control-label">Content</label>
+                                                    <textarea class="form-control" onChange={cUriData} id="l_con" >
 
 
 
