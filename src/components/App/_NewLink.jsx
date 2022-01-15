@@ -64,7 +64,7 @@ const NewLink = () => {
                         utl.innerHTML = '<option value="1">Redirect Link</option>'
 
                         if (uriInfo.contant == "image" || uriInfo.contant == "video") {
-                            utl.innerHTML += '<option value="2">Download Link</option>'
+                            utl.innerHTML += '<option value="2">Download Link (not working all browser)</option>'
                             if (uriInfo.contant == "image") {
                                 utl.innerHTML += '<option value="4">Image Link</option>'
                             } else {
