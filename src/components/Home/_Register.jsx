@@ -76,6 +76,7 @@ const Register = () => {
                 document.getElementsByClassName("reg-username")[0].removeAttribute("disabled")
                 document.getElementsByClassName("reg-email")[0].removeAttribute("disabled")
                 document.getElementsByClassName("reg-pass")[0].removeAttribute("disabled")
+                document.getElementsByClassName("reg-page")[0].removeAttribute("disabled")
                 document.getElementsByClassName("reg-agree")[0].removeAttribute("disabled")
                 document.getElementsByClassName("reg-btn")[0].removeAttribute("disabled")
                 document.getElementsByClassName("reg-btn")[0].innerHTML = "Create account"
@@ -143,6 +144,7 @@ const Register = () => {
             document.getElementsByClassName("reg-username")[0].setAttribute("disabled", "")
             document.getElementsByClassName("reg-email")[0].setAttribute("disabled", "")
             document.getElementsByClassName("reg-pass")[0].setAttribute("disabled", "")
+            document.getElementsByClassName("reg-page")[0].setAttribute("disabled", "")
             document.getElementsByClassName("reg-agree")[0].setAttribute("disabled", "")
 
             newUser(rInfo)
@@ -219,7 +221,7 @@ const Register = () => {
                                             <div className="form-group">
                                                 <div className="input-group input-group-merge">
 
-                                                    <input className="form-control reg-pass" id="pagenamex" onChange={changeInfo}
+                                                    <input className="form-control reg-page" id="pagenamex" onChange={changeInfo}
                                                            name="page" placeholder="Page Name" type="type"/>
                                                 </div>
                                             </div>
