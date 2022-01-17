@@ -138,40 +138,61 @@ const EditLink = () => {
                 document.getElementById("edit_form").classList.add("hide")
             }
 
-            fetch(Env.BackEnd + "tools/c", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ "browser_code": Env.BrwserCode, "uri": res.link_info.l_uri })
-            }).then(b => b.json()).then(resx => {
-                const utl = document.getElementsByClassName("u-t-l")[0]
-                uriInfo.contant = resx.contant.split("/")[0]
-                utl.innerHTML = '<option value="1">Redirect Link</option>'
+            const utl = document.getElementsByClassName("u-t-l")[0]
+            const ltl = document.getElementById("ltl")
+            if (res.link_info.l_uri.substring(0, 6).toLowerCase() === "magnet") {
+                utl.innerHTML = '<option value="1">Magnet Link</option>'
+                document.getElementById("l_type").removeAttribute("disabled")
+            } else {
+                fetch(Env.BackEnd + "tools/c", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ "browser_code": Env.BrwserCode, "uri": res.link_info.l_uri })
+                }).then(b => b.json()).then(resx => {
+                    uriInfo.contant = resx.contant.split("/")[0]
+                    utl.innerHTML = '<option value="1">Redirect Link</option>'
 
-                if (uriInfo.contant == "image" || uriInfo.contant == "video") {
-                    utl.innerHTML += '<option value="2">Download Link (not working all browser)</option>'
-                    if (uriInfo.contant == "image") {
-                        utl.innerHTML += '<option value="4">Image Link</option>'
-                    } else {
-                        utl.innerHTML += '<option value="3">Video Link</option>'
+                    if (uriInfo.contant == "image" || uriInfo.contant == "video") {
+                        utl.innerHTML += '<option value="2">Download Link (not working all browser)</option>'
+                        if (uriInfo.contant == "image") {
+                            utl.innerHTML += '<option value="4">Image Link</option>'
+                        } else {
+                            utl.innerHTML += '<option value="3">Video Link</option>'
+                        }
                     }
-                }
-                if (res.link_info.l_type == 1) {
-                    utl.childNodes[0].setAttribute("selected", "")
-                } else if (res.link_info.l_type == 2) {
-                    utl.childNodes[1].setAttribute("selected", "")
-                } else if (res.link_info.l_type == 3 || res.link_info.l_type == 4) {
-                    utl.childNodes[2].setAttribute("selected", "")
-                }
-                if (res.link_info.l_visible == 1) {
-                    document.getElementById("l_visible").childNodes[0].setAttribute("selected", "")
-                } else if (res.link_info.l_visible == 2) {
-                    document.getElementById("l_visible").childNodes[1].setAttribute("selected", "")
-                } else {
-                    document.getElementById("l_visible").childNodes[2].setAttribute("selected", "")
-                }
-            }).catch(e => {
-                alert("Sorry...")
-            })
+                    if (res.link_info.l_type == 1) {
+                        utl.childNodes[0].setAttribute("selected", "")
+                    } else if (res.link_info.l_type == 2) {
+                        if (utl.childNodes[1]) {
+                            utl.childNodes[1].setAttribute("selected", "")
+                        } else {
+                            utl.childNodes[0].setAttribute("selected", "")
+                            utl.innerHTML = '<option value="1">Invalid Download Link</option>'
+                            ltl.classList.add("text-danger")
+                        }
+                    } else if (res.link_info.l_type == 3 || res.link_info.l_type == 4) {
+                        if (utl.childNodes[2]) {
+                            utl.childNodes[2].setAttribute("selected", "")
+                        } else {
+                            utl.childNodes[0].setAttribute("selected", "")
+                            utl.innerHTML = res.link_info.l_type == 3 ? '<option value="1">Invalid Video Link</option>' : '<option value="1">Invalid Image Link</option>';
+                            ltl.classList.add("text-danger")
+                        }
+                    }
+                }).catch(e => {
+                    alert("Sorry...")
+                    alert(e)
+                })
+                document.getElementById("l_type").removeAttribute("disabled")
+            }
+
+            if (res.link_info.l_visible == 1) {
+                document.getElementById("l_visible").childNodes[0].setAttribute("selected", "")
+            } else if (res.link_info.l_visible == 2) {
+                document.getElementById("l_visible").childNodes[1].setAttribute("selected", "")
+            } else {
+                document.getElementById("l_visible").childNodes[2].setAttribute("selected", "")
+            }
 
             document.getElementById("l_name").setAttribute("placeholder", res.link_info.l_name)
             document.getElementById("l_url").setAttribute("placeholder", res.link_info.l_uri)
@@ -191,7 +212,7 @@ const EditLink = () => {
             }
 
             document.getElementById("l_name").removeAttribute("disabled")
-            document.getElementById("l_type").removeAttribute("disabled")
+            
             document.getElementById("l_des").removeAttribute("disabled")
             document.getElementById("thuimg_i").removeAttribute("disabled")
             document.getElementById("preimg_i").removeAttribute("disabled")
@@ -240,7 +261,7 @@ const EditLink = () => {
                                             <br />
                                             {(() => {
                                                 var pN = pageNum == undefined ? "" : pageNum
-                                                return(
+                                                return (
                                                     <Link to={"/dashboard/links/" + pN}>View All Links</Link>
                                                 )
                                             })()}
@@ -265,7 +286,7 @@ const EditLink = () => {
                                             </div>
                                             <div className="col-md-12">
                                                 <div className="form-group">
-                                                    <label className="form-control-label">Link Type</label>
+                                                    <label className="form-control-label" id="ltl">Link Type</label>
                                                     <select className="form-control u-t-l" disabled onChange={cUriData} id="l_type" >
 
 

@@ -15,7 +15,7 @@ const NewLink = () => {
         mls.classList.add("hide")
         ucb.parentElement.classList.remove("hide")
 
-        getUri = e.target.value;
+        setUri(e.target.value);
 
         const setBtn = document.getElementsByClassName("uri-c-btn")[0]
         if (getUri == "") {
@@ -32,7 +32,6 @@ const NewLink = () => {
         //console.log(getUriD);
 
     }
-
     const uriCheck = e => {
         document.getElementById("uri_err").classList.add("hide")
         const mls = document.getElementsByClassName("m-l-s")[0]
@@ -40,46 +39,70 @@ const NewLink = () => {
         e.preventDefault()
         ucb.setAttribute("disabled", "")
         document.getElementsByClassName("uri-i")[0].setAttribute("disabled", "")
-        setTimeout(() => {
-            fetch(Env.BackEnd + "tools/c", {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ "browser_code": Env.BrwserCode, "uri": getUri })
-            }).then(b => b.json()).then(res => {
-                if (res.error_code == 200) {
-                    document.getElementsByClassName("uri-c-btn")[0].removeAttribute("disabled")
-                    document.getElementsByClassName("uri-i")[0].removeAttribute("disabled")
-                    document.getElementById("thuimg_c").classList.add("hide")
-                    document.getElementById("preimg_c").classList.add("hide")
-                    document.getElementById("thuimg_i").value = ""
-                    document.getElementById("preimg_i").value = ""
-                    setUriD({ l_type: "", l_uri: getUri, l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "", l_con: "" })
-                    document.getElementById("l_name").value = "";
-                    document.getElementById("l_des").value = "";
-                    if (res.exist) {
-                        document.getElementsByClassName("uri-c-btn")[0].parentElement.classList.add("hide")
-                        mls.classList.remove("hide")
-                        uriInfo.contant = res.contant.split("/")[0]
-                        const utl = document.getElementsByClassName("u-t-l")[0]
-                        utl.innerHTML = '<option value="1">Redirect Link</option>'
+        const utl = document.getElementsByClassName("u-t-l")[0]
 
-                        if (uriInfo.contant == "image" || uriInfo.contant == "video") {
-                            utl.innerHTML += '<option value="2">Download Link (not working all browser)</option>'
-                            if (uriInfo.contant == "image") {
-                                utl.innerHTML += '<option value="4">Image Link</option>'
-                            } else {
-                                utl.innerHTML += '<option value="3">Video Link</option>'
+        if (getUri.substring(0, 6).toLowerCase() === "magnet") {
+
+            document.getElementsByClassName("uri-c-btn")[0].removeAttribute("disabled")
+            document.getElementsByClassName("uri-i")[0].removeAttribute("disabled")
+            document.getElementById("thuimg_c").classList.add("hide")
+            document.getElementById("preimg_c").classList.add("hide")
+            document.getElementById("thuimg_i").value = ""
+            document.getElementById("preimg_i").value = ""
+            setUriD({ l_type: "", l_uri: getUri, l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "", l_con: "" })
+            document.getElementById("l_name").value = "";
+            document.getElementById("l_des").value = "";
+            document.getElementsByClassName("uri-c-btn")[0].parentElement.classList.add("hide")
+            mls.classList.remove("hide")
+            utl.innerHTML = '<option value="1">Magnet Link</option>'
+
+
+        } else {
+
+            setTimeout(() => {
+                fetch(Env.BackEnd + "tools/c", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ "browser_code": Env.BrwserCode, "uri": getUri })
+                }).then(b => b.json()).then(res => {
+                    if (res.error_code == 200) {
+                        document.getElementsByClassName("uri-c-btn")[0].removeAttribute("disabled")
+                        document.getElementsByClassName("uri-i")[0].removeAttribute("disabled")
+                        document.getElementById("thuimg_c").classList.add("hide")
+                        document.getElementById("preimg_c").classList.add("hide")
+                        document.getElementById("thuimg_i").value = ""
+                        document.getElementById("preimg_i").value = ""
+                        setUriD({ l_type: "", l_uri: getUri, l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "", l_con: "" })
+                        document.getElementById("l_name").value = "";
+                        document.getElementById("l_des").value = "";
+                        if (res.exist) {
+
+                            document.getElementsByClassName("uri-c-btn")[0].parentElement.classList.add("hide")
+                            mls.classList.remove("hide")
+                            uriInfo.contant = res.contant.split("/")[0]
+                            const utl = document.getElementsByClassName("u-t-l")[0]
+                            utl.innerHTML = '<option value="1">Redirect Link</option>'
+
+                            if (uriInfo.contant == "image" || uriInfo.contant == "video") {
+                                utl.innerHTML += '<option value="2">Download Link (not working all browser)</option>'
+                                if (uriInfo.contant == "image") {
+                                    utl.innerHTML += '<option value="4">Image Link</option>'
+                                } else {
+                                    utl.innerHTML += '<option value="3">Video Link</option>'
+                                }
                             }
-                        }
 
-                    } else {
-                        document.getElementById("uri_err").classList.remove("hide")
+                        } else {
+                            document.getElementById("uri_err").classList.remove("hide")
+                        }
                     }
-                }
-            }).catch(e => {
-                alert("Sorry...")
-            })
-        }, 500)
+                }).catch(e => {
+                    alert("Sorry...")
+                })
+            }, 500)
+
+        }
+
 
     }
 
@@ -294,7 +317,7 @@ const NewLink = () => {
                                                     </textarea>
                                                 </div>
                                             </div>
-                                            
+
                                             <div className="col-md-12">
                                                 <div className="form-group">
                                                     <label className="form-control-label">Thumbline <a data-toggle="modal" className="text-primary" data-target="#thu-mod"><i class="far fa-question-circle"></i></a></label>
