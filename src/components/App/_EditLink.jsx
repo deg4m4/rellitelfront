@@ -133,6 +133,38 @@ const EditLink = () => {
 
         }).then(b => b.json()).then(res => {
 
+            if (res.link_info.l_visible == 1) {
+                document.getElementById("l_visible").childNodes[0].setAttribute("selected", "")
+            } else if (res.link_info.l_visible == 2) {
+                document.getElementById("l_visible").childNodes[1].setAttribute("selected", "")
+            } else {
+                document.getElementById("l_visible").childNodes[2].setAttribute("selected", "")
+            }
+
+            document.getElementById("l_name").setAttribute("placeholder", res.link_info.l_name)
+            document.getElementById("l_url").setAttribute("placeholder", res.link_info.l_uri)
+            document.getElementById("l_des").setAttribute("placeholder", res.link_info.l_des)
+            document.getElementById("l_con").setAttribute("placeholder", res.link_info.l_con)
+
+            if (res.link_info.thu_i != "") {
+                document.getElementById("thuimg_s").src = Env.SURL + "/images/" + res.link_info.thu_i
+            } else {
+                document.getElementById("thuimg_c").classList.add("hide")
+            }
+
+            if (res.link_info.pre_i != "") {
+                document.getElementById("preimg_s").src = Env.SURL + "/images/" + res.link_info.pre_i
+            } else {
+                document.getElementById("preimg_c").classList.add("hide")
+            }
+
+            document.getElementById("l_name").removeAttribute("disabled")
+
+            document.getElementById("l_des").removeAttribute("disabled")
+            document.getElementById("thuimg_i").removeAttribute("disabled")
+            document.getElementById("preimg_i").removeAttribute("disabled")
+            document.getElementById("up_btn").removeAttribute("disabled")
+
             if (res.link_info.l_count == 0 || !res.success) {
                 document.getElementById("link404_error").classList.remove("hide")
                 document.getElementById("edit_form").classList.add("hide")
@@ -185,39 +217,6 @@ const EditLink = () => {
                 })
                 document.getElementById("l_type").removeAttribute("disabled")
             }
-
-            if (res.link_info.l_visible == 1) {
-                document.getElementById("l_visible").childNodes[0].setAttribute("selected", "")
-            } else if (res.link_info.l_visible == 2) {
-                document.getElementById("l_visible").childNodes[1].setAttribute("selected", "")
-            } else {
-                document.getElementById("l_visible").childNodes[2].setAttribute("selected", "")
-            }
-
-            document.getElementById("l_name").setAttribute("placeholder", res.link_info.l_name)
-            document.getElementById("l_url").setAttribute("placeholder", res.link_info.l_uri)
-            document.getElementById("l_des").setAttribute("placeholder", res.link_info.l_des)
-            document.getElementById("l_con").setAttribute("placeholder", res.link_info.l_con)
-
-            if (res.link_info.thu_i != "") {
-                document.getElementById("thuimg_s").src = Env.SURL + "/images/" + res.link_info.thu_i
-            } else {
-                document.getElementById("thuimg_c").classList.add("hide")
-            }
-
-            if (res.link_info.pre_i != "") {
-                document.getElementById("preimg_s").src = Env.SURL + "/images/" + res.link_info.pre_i
-            } else {
-                document.getElementById("preimg_c").classList.add("hide")
-            }
-
-            document.getElementById("l_name").removeAttribute("disabled")
-            
-            document.getElementById("l_des").removeAttribute("disabled")
-            document.getElementById("thuimg_i").removeAttribute("disabled")
-            document.getElementById("preimg_i").removeAttribute("disabled")
-            document.getElementById("up_btn").removeAttribute("disabled")
-
 
         }).catch(() => {
             alert("Sorry...")
