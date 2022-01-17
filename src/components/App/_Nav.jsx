@@ -84,9 +84,9 @@ const Nav = () => {
                             </h6>
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/dashboard/withdraw">
+                                    <NavLink className="nav-link" to="/dashboard/wallet">
                                         <i className="fa fa-wallet text-green"></i>
-                                        <span className="nav-link-text">Withdraw</span>
+                                        <span className="nav-link-text">Wallet</span>
                                     </NavLink>
                                 </li>
                                 <li className="nav-item">
@@ -108,6 +108,15 @@ const Nav = () => {
                                     <NavLink className="nav-link" to="/dashboard/support">
                                         <i className="fa fa-headset text-pink"></i>
                                         <span className="nav-link-text">Support</span>
+                                    </NavLink>
+                                </li>
+                            </ul>
+                            <hr className="my-3" />
+                            <ul className="navbar-nav">
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/logout">
+                                        <i className="fa fa-sign-out-alt text-gray"></i>
+                                        <span className="nav-link-text">Logout</span>
                                     </NavLink>
                                 </li>
                             </ul>
