@@ -62,12 +62,12 @@ const Header = () => {
                                         <h6 class="text-overflow m-0">Welcome!</h6>
                                     </div>
                                     <Link to="/dashboard/profile" class="dropdown-item">
-                                        <i class="ni ni-single-02"></i>
+                                        <i class="fa fa-user"></i>
                                         <span>My profile</span>
                                     </Link>
                                     <div class="dropdown-divider"></div>
                                     <Link to="/logout" class="dropdown-item">
-                                        <i class="ni ni-user-run"></i>
+                                        <i class="fa fa-sign-out-alt"></i>
                                         <span>Logout</span>
                                     </Link>
                                 </div>
