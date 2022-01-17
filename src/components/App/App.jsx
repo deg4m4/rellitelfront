@@ -6,7 +6,7 @@ import Profile from './_Profile'
 import Header from './_Header'
 import APIs from './_Api'
 import Support from './_Support'
-import Withdraw from './_Withdraw'
+import Wallet from './_Wallet'
 import Error404 from './_Error404'
 import NewLink from './_NewLink'
 import Setting from './_Setting'
@@ -38,9 +38,9 @@ const App = () => {
                     <Route path="/delete/:linkSlug/:pageNum/:pageQuery" element={<Delete />} />
                     <Route path="/api" element={<APIs />} />
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="/Setting" element={<Setting />} />
+                    <Route path="/setting" element={<Setting />} />
                     <Route path="/support" element={<Support />} />
-                    <Route path="/withdraw" element={<Withdraw />} />
+                    <Route path="/wallet" element={<Wallet />} />
                     <Route path="/*" element={<Error404 />} />
 
                 </Routes>

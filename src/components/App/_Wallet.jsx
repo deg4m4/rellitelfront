@@ -1,6 +1,6 @@
 import Footer from "./_Footer"
 
-const Withdraw = () => {
+const Wallet = () => {
 
     return (
         <>
@@ -9,7 +9,7 @@ const Withdraw = () => {
                 <span className="mask bg-gradient-default opacity-7"></span>
                 <div className="container-fluid d-flex align-items-center">
                     <div className="col-lg-7 md-10">
-                        <h1 className="display-2 text-white">Withdraw</h1>
+                        <h1 className="display-2 text-white">Wallet</h1>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@ const Withdraw = () => {
                     <div class="header-body">
                         <div class="row align-items-center py-4">
                             <div class="col-lg-6 col-7">
-                                <h6 class="h2 text-white d-inline-block mb-0">Withdraw</h6>
+                                <h6 class="h2 text-white d-inline-block mb-0">Wallet</h6>
                             </div>
                             <div class="col-lg-6 col-5 text-right">
                                 <a href="#" class="btn btn-sm btn-neutral">Week</a>
@@ -303,4 +303,4 @@ const Withdraw = () => {
 
 }
 
-export default Withdraw
+export default Wallet
