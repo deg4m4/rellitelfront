@@ -60,9 +60,9 @@ const Links = () => {
 
     }, [getParams])
 
-/*     function copyURI(e) {
-        navigator.clipboard.writeText(e.target.getAttribute("go"));
-    } */
+    /*     function copyURI(e) {
+            navigator.clipboard.writeText(e.target.getAttribute("go"));
+        } */
 
     function tConvert(time) {
         time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
@@ -165,11 +165,19 @@ const Links = () => {
                                                         <td>
                                                             {(() => {
                                                                 if (pList.links_data[w].l_type == 1) {
-                                                                    return (
-                                                                        <>
-                                                                            <i className="fa fa-directions"></i> Redirect
-                                                                        </>
-                                                                    )
+                                                                    if (pList.links_data[w].l_uri.substring(0, 6).toLowerCase() === "magnet") {
+                                                                        return (
+                                                                            <>
+                                                                                <i className="fa fa-magnet"></i> magnet
+                                                                            </>
+                                                                        )
+                                                                    } else {
+                                                                        return (
+                                                                            <>
+                                                                                <i className="fa fa-directions"></i> Redirect
+                                                                            </>
+                                                                        )
+                                                                    }
                                                                 } else if (pList.links_data[w].l_type == 2) {
                                                                     return (
                                                                         <>
