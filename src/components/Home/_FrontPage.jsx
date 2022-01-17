@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Env from '../Env'
 
 const FrontPage = () => {
@@ -6,7 +7,7 @@ const FrontPage = () => {
 
     return (
         <>
-            
+            <Link to="/dashboard">Dashboard</Link>
         </>
     )
 
