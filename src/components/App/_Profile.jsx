@@ -219,7 +219,7 @@ const Profile = () => {
             document.getElementsByClassName("u-phone-i")[0].removeAttribute("disabled")
             document.getElementsByClassName("u-email-i")[0].removeAttribute("disabled")
 
-            console.log(res);
+            //console.log(res);
 
         }).catch((e) => {
 
