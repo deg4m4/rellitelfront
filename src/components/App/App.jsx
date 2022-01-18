@@ -25,22 +25,55 @@ const App = () => {
         month_earn: 0,
         lastm_earn: 0,
         last_7: 0,
-        prev_7: 0
+        prev_7: 0,
+        top_link: {}
     });
+
+    const [chartData, setCData] = useState([])
+    const [topLink, setTopLink] = useState([])
+    const [pageSlug, setPaSlug] = useState([])
 
     useEffect(() => {
 
         fetch(Env.BackEnd + "analytics", checkAuth()).then(b => b.json()).then(res => {
 
             if (res.success) {
+                var cd = []
                 setUserAna(res.user_analytics)
-            } else {
-                //alert("Sorry User....")
-            }
+                res.user_analytics.chart_data.forEach(element => {
+                    cd.push({ date: element.date, view: element.view, earn: element.earn.toFixed(4) })
+                });
+                //console.log(res.user_analytics);
+                setCData(cd);
 
+                var p = [] 
+                res.user_analytics.top_link.forEach(element => {
+                    //console.log(element);
+                    if (p[element.l_count] === undefined) {
+                        p[element.l_count] = []   
+                    }
+                    p[element.l_count].push(element)
+                });
+                var topL = []
+                var iI = 0
+                for (let index = p.length - 1; index > 0; index--) {
+                    if (p[index] !== undefined) {
+                        for (let index2 = 0; index2 < p[index].length; index2++) {
+                            if (iI > 9) {
+                                break
+                            }
+                            topL.push(p[index][index2])
+                            iI++
+                        }
+                    }
+                }
+            }
+            setPaSlug(res.user_analytics.p_slug);
+            setTopLink(topL)
         }).catch((e) => {
 
             alert("Sorry")
+            alert(e)
 
         })
 
@@ -56,7 +89,7 @@ const App = () => {
 
                 <Routes>
 
-                    <Route path="/" element={<DashBoard userAna={userAna} />} />
+                    <Route path="/" element={<DashBoard userAna={userAna} chartData={chartData} topLink={topLink} pageSlug={pageSlug} />} />
                     <Route path="/links" element={<Links />} />
                     <Route path="/links/:page" element={<Links />} />
                     <Route path="/links/:page/:query" element={<Links />} />

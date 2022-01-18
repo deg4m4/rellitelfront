@@ -379,6 +379,10 @@ input
     overflow: visible;
 }
 
+.h-500 {
+    height: 500px !important;
+}
+
 button,
 select
 {
