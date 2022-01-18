@@ -12,8 +12,39 @@ import NewLink from './_NewLink'
 import Setting from './_Setting'
 import EditLink from './_EditLink'
 import Delete from './_Delete'
+import { useEffect, useState } from "react"
+import Env from "../Env"
+import checkAuth from "../../module/checkauth"
 
 const App = () => {
+
+    const [userAna, setUserAna] = useState({
+        user_balance: 0,
+        today_earn: 0,
+        yesterday_earn: 0,
+        month_earn: 0,
+        lastm_earn: 0,
+        last_7: 0,
+        prev_7: 0
+    });
+
+    useEffect(() => {
+
+        fetch(Env.BackEnd + "analytics", checkAuth()).then(b => b.json()).then(res => {
+
+            if (res.success) {
+                setUserAna(res.user_analytics)
+            } else {
+                //alert("Sorry User....")
+            }
+
+        }).catch((e) => {
+
+            alert("Sorry")
+
+        })
+
+    }, [])
 
     return (
         <>
@@ -25,7 +56,7 @@ const App = () => {
 
                 <Routes>
 
-                    <Route path="/" element={<DashBoard />} />
+                    <Route path="/" element={<DashBoard userAna={userAna} />} />
                     <Route path="/links" element={<Links />} />
                     <Route path="/links/:page" element={<Links />} />
                     <Route path="/links/:page/:query" element={<Links />} />
@@ -44,7 +75,7 @@ const App = () => {
                     <Route path="/*" element={<Error404 />} />
 
                 </Routes>
-                
+
             </div>
 
         </>

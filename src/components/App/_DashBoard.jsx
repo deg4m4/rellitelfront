@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import Footer from "./_Footer"
 import { ResponsiveContainer, Tooltip, XAxis, YAxis, AreaChart, Area } from "recharts"
+import { useState } from "react"
 
 const cData = [
 
@@ -177,8 +178,84 @@ const cData = [
         fees: 54
     }
 ]
+const cData2 = [
 
-const DashBoard = () => {
+    {
+        name: "React",
+        student: 14,
+        fees: 30
+    },
+    {
+        name: "Python",
+        student: 13,
+        fees: 14
+    },
+    {
+        name: "React",
+        student: 14,
+        fees: 22
+    },
+    {
+        name: "Python",
+        student: 13,
+        fees: 23
+    }, {
+        name: "React",
+        student: 14,
+        fees: 30
+    },
+    {
+        name: "Python",
+        student: 13,
+        fees: 14
+    },
+    {
+        name: "React",
+        student: 14,
+        fees: 22
+    },
+    {
+        name: "Python",
+        student: 13,
+        fees: 23
+    },
+    {
+        name: "React",
+        student: 14,
+        fees: 30
+    },
+    {
+        name: "Python",
+        student: 13,
+        fees: 23
+    },
+    {
+        name: "React",
+        student: 14,
+        fees: 30
+    }, {
+        name: "React",
+        student: 14,
+        fees: 30
+    },
+    {
+        name: "Python",
+        student: 13,
+        fees: 14
+    },
+]
+
+
+const DashBoard = (prop) => {
+    const [charData, setData] = useState(cData);
+    const dataC = () => {
+        if (charData == cData) {
+            setData(cData2)
+        } else {
+            setData(cData)
+        }
+    }
+    console.log(prop);
 
     return (
         <>
@@ -208,19 +285,19 @@ const DashBoard = () => {
                                                     <div class="row">
                                                         <div class="col">
                                                             <h5 class="card-title text-uppercase text-muted mb-0">today</h5>
-                                                            <span class="h2 font-weight-bold mb-0">350,897 $</span>
+                                                            <span class="h2 font-weight-bold mb-0">{prop.userAna.today_earn.toFixed(4)}$</span>
                                                         </div>
                                                     </div>
                                                     <p class="mt-1 mb-0 text-sm">
-                                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                                                        <span class="text-nowrap">Since last month</span>
+                                                        <span class="text-success mr-2" ><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                                        <span class="text-nowrap">{prop.userAna.yesterday_earn.toFixed(4)}Since last month</span>
                                                     </p>
                                                 </div>
                                                 <div className="col-12 col-lg-4 py-4 py-lg-2">
                                                     <div class="row">
                                                         <div class="col">
                                                             <h5 class="card-title text-uppercase text-muted mb-0">Last 7 days</h5>
-                                                            <span class="h2 font-weight-bold mb-0">350,897 $</span>
+                                                            <span class="h2 font-weight-bold mb-0">{prop.userAna.last_7.toFixed(4)}$</span>
                                                         </div>
                                                     </div>
                                                     <p class="mt-1 mb-0 text-sm">
@@ -232,7 +309,7 @@ const DashBoard = () => {
                                                     <div class="row">
                                                         <div class="col">
                                                             <h5 class="card-title text-uppercase text-muted mb-0">This Month</h5>
-                                                            <span class="h2 font-weight-bold mb-0">350,897 $</span>
+                                                            <span class="h2 font-weight-bold mb-0">{prop.userAna.month_earn.toFixed(4)}$</span>
                                                         </div>
                                                     </div>
                                                     <p class="mt-1 mb-0 text-sm">
@@ -261,7 +338,7 @@ const DashBoard = () => {
                                                     <div class="row">
                                                         <div class="col">
                                                             <h5 class="card-title text-uppercase text-muted mb-0">Total balance</h5>
-                                                            <span class="h2 font-weight-bold mb-0">350,897$</span>
+                                                            <span class="h2 font-weight-bold mb-0">{prop.userAna.user_balance.toFixed(4)}$</span>
                                                         </div>
                                                     </div>
                                                     <p class="mt-1 mb-0 text-sm">
@@ -279,7 +356,7 @@ const DashBoard = () => {
             </div>
             <div class="container-fluid mt--6">
                 <div class="row">
-                    
+
                     <div class="col-xl-8">
                         <div class="card bg-default">
                             <div class="card-header bg-transparent">
@@ -289,7 +366,7 @@ const DashBoard = () => {
                                     </div>
                                     <div class="col">
                                         <ul class="d-flex justify-content-end m-0">
-                                            <button type="button" class="btn btn-primary btn-sm">30 Days</button>
+                                            <button type="button" onClick={dataC} class="btn btn-primary btn-sm">30 Days</button>
                                         </ul>
                                     </div>
                                 </div>
@@ -297,8 +374,8 @@ const DashBoard = () => {
                             <div class="card-body">
                                 <div class="chart">
                                     <ResponsiveContainer>
-                                        <AreaChart width={730} height={350} data={cData}
-                                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                                        <AreaChart width={730} height={350} data={charData}
+                                            margin={{ top: 10, right: 15, left: -35, bottom: 0 }}>
                                             <defs>
                                                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                                                     <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
@@ -338,7 +415,7 @@ const DashBoard = () => {
                                 <div class="chart">
                                     <ResponsiveContainer>
                                         <AreaChart width={730} height={350} data={cData}
-                                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                                            margin={{ top: 10, right: 15, left: -40, bottom: 0 }}>
                                             <defs>
                                                 <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                                                     <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
@@ -354,7 +431,7 @@ const DashBoard = () => {
 
                                             <Tooltip />
                                             <Area type="monotone" dataKey="fees" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                                            
+
                                         </AreaChart>
                                     </ResponsiveContainer>
                                 </div>
