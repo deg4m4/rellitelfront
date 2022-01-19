@@ -19,7 +19,7 @@ const DashBoard = (prop) => {
             document.getElementById("p_earn").innerHTML = "no earning previous 7 days";
         } else {
             var inc = (((prop.userAna.last_7 - prop.userAna.prev_7) / prop.userAna.prev_7) * 100).toFixed(2);
-            document.getElementById("p_earn").innerHTML =  "<span class='" + (inc > 0 ? "text-success" : "text-danger") + "'>" +(inc > 100 ? "100%+" : inc + "%") + "</span> previous 7 days";
+            document.getElementById("p_earn").innerHTML =  "<span class='" + (inc > 0 ? "text-success" : "text-danger") + "'>" +(inc > 100 ? "100%+" : inc + "%") + "</span> Since previous 7 days";
         }
 
         if (prop.userAna.lastm_earn == 0) {
