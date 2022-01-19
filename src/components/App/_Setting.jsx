@@ -50,7 +50,6 @@ const Setting = () => {
             inputF[k].setAttribute("disabled", "")
         }
 
-
         e.preventDefault()
 
         setTimeout(() => {
