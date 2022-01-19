@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, renderMatches } from 'react-router-dom'
 import DashBoard from './_DashBoard'
 import Links from './_Links'
 import Nav from './_Nav'
@@ -32,6 +32,7 @@ const App = () => {
     const [chartData, setCData] = useState([])
     const [topLink, setTopLink] = useState([])
     const [pageSlug, setPaSlug] = useState([])
+    const [tMass, setTopMass] = useState(["", 0])
 
     useEffect(() => {
 
@@ -46,11 +47,11 @@ const App = () => {
                 //console.log(res.user_analytics);
                 setCData(cd);
 
-                var p = [] 
+                var p = []
                 res.user_analytics.top_link.forEach(element => {
                     //console.log(element);
                     if (p[element.l_count] === undefined) {
-                        p[element.l_count] = []   
+                        p[element.l_count] = []
                     }
                     p[element.l_count].push(element)
                 });
@@ -69,7 +70,11 @@ const App = () => {
                 }
             }
             setPaSlug(res.user_analytics.p_slug);
+            if (topL.length == 0) {
+                setTopMass(["No Top links in 7 days", 2]);
+            }
             setTopLink(topL)
+
         }).catch((e) => {
 
             alert("Sorry")
@@ -89,7 +94,7 @@ const App = () => {
 
                 <Routes>
 
-                    <Route path="/" element={<DashBoard userAna={userAna} chartData={chartData} topLink={topLink} pageSlug={pageSlug} />} />
+                    <Route path="/" element={<DashBoard userAna={userAna} chartData={chartData} topLink={topLink} pageSlug={pageSlug} tMass={tMass} />} />
                     <Route path="/links" element={<Links />} />
                     <Route path="/links/:page" element={<Links />} />
                     <Route path="/links/:page/:query" element={<Links />} />
