@@ -298,23 +298,7 @@ const Profile = () => {
                                 </div>
                             </div>
                             <div className="card-body pt-0">
-                                <div className="row">
-                                    <div className="col">
-                                        <div className="card-profile-stats d-flex justify-content-center">
-
-
-                                            <div>
-                                                <span className="heading">10</span>
-                                                <span className="description">Photos</span>
-                                            </div>
-                                            <div>
-                                                <span className="heading">89</span>
-                                                <span className="description">Comments</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="text-center">
+                                <div className="mt-5 text-center">
                                     <h5 className="h3">
                                         {userInfo.userfullname}
                                     </h5>
