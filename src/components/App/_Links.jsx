@@ -119,7 +119,7 @@ const Links = () => {
                                     if (pList.link_count == 0) {
                                         return (
                                             <h2 class="input-group mb-3 pl-4 pr-4">
-                                                No Link Found
+                                                No Links Found
                                             </h2>
                                         )
                                     }
