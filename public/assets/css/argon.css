@@ -84,9 +84,6 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-*{
-    text-transform: capitalize;
-}
 
 .background-cover{
     background-image: url("http://app.rellitel.ink/assets/img/4884451.jpg");

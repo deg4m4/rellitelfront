@@ -29918,5 +29918,5 @@ input.datetimepicker[data-color='yellow'] + .bootstrap-datetimepicker-widget.dro
 
 
 .url-x{
-    text-transform: capitalize !important;
+    text-transform: none !important;
 }
