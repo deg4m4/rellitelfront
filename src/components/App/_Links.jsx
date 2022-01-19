@@ -155,7 +155,7 @@ const Links = () => {
                                                 retVal.push(
                                                     <tr>
                                                         <th scope="row">
-                                                            ({pList.links_data[w].l_pid}) <span class="name mb-0 text-sm">{pList.links_data[w].l_name}</span>
+                                                            {/* ({pList.links_data[w].l_pid})  */}<span class="name mb-0 text-sm">{pList.links_data[w].l_name}</span>
                                                         </th>
                                                         <td class="budget">
                                                             <Link type="button" to={"/dashboard/edit/" + pList.links_data[w].l_slug + "/" + nList.n + "/" + (nList.q != undefined ? nList.q : "")} class="text-white btn btn-sm btn-primary">
