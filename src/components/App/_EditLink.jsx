@@ -202,6 +202,7 @@ const EditLink = () => {
                         } else {
                             utl.childNodes[0].setAttribute("selected", "")
                             utl.innerHTML = '<option value="1">Invalid Download Link</option>'
+                            ltl.innerHTML += ` <a data-toggle="modal" className="text-primary" data-target="#inv_mod"><i class="far fa-question-circle"></i></a>`
                             ltl.classList.add("text-danger")
                         }
                     } else if (res.link_info.l_type == 3 || res.link_info.l_type == 4) {
@@ -210,6 +211,7 @@ const EditLink = () => {
                         } else {
                             utl.childNodes[0].setAttribute("selected", "")
                             utl.innerHTML = res.link_info.l_type == 3 ? '<option value="1">Invalid Video Link</option>' : '<option value="1">Invalid Image Link</option>';
+                            ltl.innerHTML += ` <a data-toggle="modal" className="text-primary" data-target="#inv_mod"><i class="far fa-question-circle"></i></a>`
                             ltl.classList.add("text-danger")
                         }
                     }
@@ -298,7 +300,7 @@ const EditLink = () => {
 
                                             <div className="col-md-12">
                                                 <div className="form-group">
-                                                    <label className="form-control-label">Description</label>
+                                                    <label className="form-control-label">Description <a data-toggle="modal" className="text-primary" data-target="#des_mod"><i class="far fa-question-circle"></i></a></label>
                                                     <textarea className="form-control" disabled onChange={cUriData} id="l_des" >
 
 
@@ -320,7 +322,7 @@ const EditLink = () => {
 
                                             <div className="col-md-12">
                                                 <div className="form-group">
-                                                    <label className="form-control-label">Thumbline <a data-toggle="modal" className="text-primary" data-target="#thu-mod"><i class="far fa-question-circle"></i></a></label>
+                                                    <label className="form-control-label">Thumbnail <a data-toggle="modal" className="text-primary" data-target="#thu_mod"><i class="far fa-question-circle"></i></a></label>
                                                     <div className="custom-file">
                                                         <input type="file" onChange={loadimage} disabled accept="image/*" className="custom-file-input" id="thuimg_i" lang="en" />
                                                         <label className="custom-file-label" for="customFileLang">Select file</label>
@@ -401,12 +403,12 @@ const EditLink = () => {
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="thu-mod" tabindex="-1" role="dialog" aria-labelledby="thu-mod" aria-hidden="true">
+                <div class="modal fade" id="thu_mod" tabindex="-1" role="dialog" aria-labelledby="thu-mod" aria-hidden="true">
                     <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
                         <div class="modal-content">
 
                             <div class="modal-header">
-                                <h6 class="modal-title" id="modal-title-default">Type your modal title</h6>
+                                <h6 class="modal-title" id="modal-title-default">Thumbnail</h6>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
@@ -414,18 +416,67 @@ const EditLink = () => {
 
                             <div class="modal-body">
 
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                                <p>you want to set as thumbnail image that image upload here.</p>
+                                <p>Otherwise if you do not upload thumbnail then in case {Env.AppName} will set its default thumbnail which will look bad to the user.</p>
 
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                                <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary  ml-auto" data-dismiss="modal">Close</button>
                             </div>
 
                         </div>
                     </div>
+                </div>
+                <div class="modal fade" id="des_mod" tabindex="-1" role="dialog" aria-labelledby="thu-mod" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="modal-title-default">Description</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>This description field is for SEO purposes.</p>
+                                <p>Create a description using all the keywords related to your link and fill that description here.</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="inv_mod" tabindex="-1" role="dialog" aria-labelledby="thu-mod" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="modal-title-default">Invalid Link</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>The data contained in the link you added here may have been deleted from that server So here is the invalid link.</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    
                 </div>
                 <Footer />
             </div>

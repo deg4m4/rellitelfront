@@ -218,7 +218,7 @@ const Setting = () => {
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <label class="form-control-label">Page Logo</label>
+                                                    <label class="form-control-label">Page Logo <a data-toggle="modal" className="text-primary" data-target="#plo1_mod"><i class="far fa-question-circle"></i></a></label>
                                                     <div class="custom-file">
                                                         <input type="file" accept="image/*" onChange={changeImage1} class="custom-file-input" id="pagelogo1_i" disabled lang="en" />
                                                         <label class="custom-file-label" for="customFileLang">Select file</label>
@@ -230,7 +230,7 @@ const Setting = () => {
                                             </div>
                                             <div className="col-lg-6">
                                                 <div className="form-group">
-                                                    <label class="form-control-label">Page Logo (Square)</label>
+                                                    <label class="form-control-label">Page Logo (Square) <a data-toggle="modal" className="text-primary" data-target="#plo2_mod"><i class="far fa-question-circle"></i></a></label>
                                                     <div class="custom-file">
                                                         <input type="file" accept="image/*" onChange={changeImage2} class="custom-file-input" id="pagelogo2_i" disabled lang="en" />
                                                         <label class="custom-file-label" for="customFileLang">Select file</label>
@@ -312,6 +312,56 @@ const Setting = () => {
                                 </form>
 
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="plo1_mod" tabindex="-1" role="dialog" aria-labelledby="thu-mod" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="modal-title-default">Page Logo</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>you want as the logo of the page, Upload here.</p>
+                                <p>Otherwise if you do not upload Logo then in case will set its default Logo.</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary  ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="plo2_mod" tabindex="-1" role="dialog" aria-labelledby="thu-mod" aria-hidden="true">
+                    <div class="modal-dialog modal- modal-dialog-centered modal-" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="modal-title-default">Page Logo (Square)</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+
+                                <p>This image will be kept as a small screen device as well as a favicon of your Page.</p>
+                                <p>Otherwise if you do not upload Logo then in case will set its default Logo.</p>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary ml-auto" data-dismiss="modal">Close</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
