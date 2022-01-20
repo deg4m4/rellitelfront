@@ -86,7 +86,7 @@ const Header = () => {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h2>Are You Sure You want to logout</h2>
+                            <p class="text-center display-4">Are You Sure You want to logout</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
