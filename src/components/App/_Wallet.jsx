@@ -1,9 +1,46 @@
+import { useState } from "react"
 import Footer from "./_Footer"
 import Env from "../Env"
 
 const Wallet = () => {
 
     document.title = "Wallet - " + Env.AppName
+
+    const [getPOM, setPOM] = useState("paypal")
+
+    const payOutSel = (e) => {
+        const pol = document.getElementById("pol_logo")
+        switch (e.target.id) {
+            case "pos_p_l":
+                setPOM("paypal")
+                pol.src = "/assets/img/pol/paypal.svg"
+                break;
+            case "pos_p_r":
+                setPOM("payoneer")
+                pol.src = "/assets/img/pol/payoneer.svg"
+                break;
+            case "pos_u_i":
+                setPOM("upi")
+                pol.src = "/assets/img/pol/upi.svg"
+                break;
+            case "pos_g_e":
+                setPOM("google")
+                pol.src = "/assets/img/pol/google.svg"
+                break;
+            case "pos_a_n":
+                setPOM("amazon")
+                pol.src = "/assets/img/pol/amazon.svg"
+                break;
+            case "pos_p_e":
+                setPOM("phonepe")
+                pol.src = "/assets/img/pol/phonepe.svg"
+                break;
+            default:
+                setPOM("paypal")
+                pol.src = "/assets/img/pol/paypal.svg"
+                break;
+        }
+    }
 
     return (
         <>
@@ -52,33 +89,55 @@ const Wallet = () => {
                                                 <a class="nav-link mb-sm-3 mb-md-0" data-toggle="tab" href="#tabs-icons-text-1" role="tab" >PayPal</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link mb-sm-3 mb-md-0 active" data-toggle="tab" href="#tabs-icons-text-2" role="tab">PayPal</a>
+                                                <a class="nav-link mb-sm-3 mb-md-0 active" onClick={payOutSel} id="pos_p_l" data-toggle="tab" href="#tabs-icons-text-2" role="tab">PayPal</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link mb-sm-3 mb-md-0" data-toggle="tab" href="#tabs-icons-text-3" role="tab">Payoneer</a>
+                                                <a class="nav-link mb-sm-3 mb-md-0" onClick={payOutSel} id="pos_p_r" data-toggle="tab" href="#tabs-icons-text-3" role="tab">Payoneer</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link mb-sm-3 mb-md-0" data-toggle="tab" href="#tabs-icons-text-4" role="tab">UPI (india)</a>
+                                                <a class="nav-link mb-sm-3 mb-md-0" onClick={payOutSel} id="pos_u_i" data-toggle="tab" href="#tabs-icons-text-4" role="tab">UPI (india)</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link mb-sm-3 mb-md-0 " data-toggle="tab" href="#tabs-icons-text-5" role="tab">google redeem code</a>
+                                                <a class="nav-link mb-sm-3 mb-md-0" onClick={payOutSel} id="pos_g_e" data-toggle="tab" href="#tabs-icons-text-5" role="tab">google redeem code</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link mb-sm-3 mb-md-0 " data-toggle="tab" href="#tabs-icons-text-6" role="tab">amazon gift card</a>
+                                                <a class="nav-link mb-sm-3 mb-md-0" onClick={payOutSel} id="pos_a_n" data-toggle="tab" href="#tabs-icons-text-6" role="tab">amazon gift card</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link mb-sm-3 mb-md-0 " data-toggle="tab" href="#tabs-icons-text-6" role="tab">PhonePe</a>
+                                                <a class="nav-link mb-sm-3 mb-md-0" onClick={payOutSel} id="pos_p_e" data-toggle="tab" href="#tabs-icons-text-6" role="tab">PhonePe</a>
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="card shadow">
-                                        <div class="card-body">
-                                            <div class="tab-content" id="myTabContent">
-                                                <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
-                                                    <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</p>
-                                                    <p class="description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.</p>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+
+                                            <div className="row p-0">
+                                                <div className="col-12 col-lg-4 py-4">
+                                                    <img id="pol_logo" src="/assets/img/pol/paypal.svg" class="w-100" />
+                                                </div>
+                                                <div className="col-12 p-0 col-lg-8">
+                                                    <div className="col-lg-12">
+                                                        <div className="form-group">
+                                                            <label className="form-control-label" for="input-first-name">paypal registred email</label>
+                                                            <input type="text" id="input-first-name" className="u-email-i form-control" placeholder="Paypal Registred Email" name="uemail" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-lg-12">
+                                                        <div class="form-group">
+                                                            <label for="example-number-input" class="form-control-label">Amount in Doller</label>
+                                                            <input class="form-control" type="number" id="example-number-input" placeholder="minimum $1" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-lg-12">
+                                                        <div class="form-group d-flex">
+                                                            <button class="btn btn-primary ml-auto">
+                                                                Withdraw
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
