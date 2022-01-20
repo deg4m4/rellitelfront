@@ -5,6 +5,8 @@ import cookies from "../../module/cookies"
 
 const Logout = () => {
 
+    document.title = "Logout - " + Env.AppName
+
     useEffect(() => {
 
         fetch(Env.BackEnd + "logout", checkAuth()).then(b => b.json()).then((r) => {

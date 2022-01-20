@@ -5,6 +5,8 @@ import checkAuth from "../../module/checkauth"
 
 const ForgotPass = () => {
 
+    document.title = "Forgot Password - " + Env.AppName
+
     const [uEmail, setEmail] = useState("")
 
     useEffect(() => {

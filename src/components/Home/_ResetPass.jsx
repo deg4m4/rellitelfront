@@ -5,6 +5,8 @@ import checkAuth from "../../module/checkauth"
 
 const ResetPass = () => {
 
+    document.title = "Reset Password - " + Env.AppName
+
     const [uPass, setPass] = useState("")
     const getParam = useParams()
 

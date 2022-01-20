@@ -3,6 +3,8 @@ import Env from "../Env"
 
 const Verify = () => {
 
+    document.title = "Verify Email - " + Env.AppName
+
     const getParams = useParams()
 
     fetch(Env.BackEnd + "verify", {

@@ -6,6 +6,8 @@ import checkAuth from "../../module/checkauth"
 
 const Login = () => {
 
+    document.title = "Login - " + Env.AppName
+
     const [lInfo, setLInfo] = useState({
         uoe: "",
         pass: "",

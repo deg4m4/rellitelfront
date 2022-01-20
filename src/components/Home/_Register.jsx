@@ -5,6 +5,8 @@ import checkAuth from "../../module/checkauth"
 
 const Register = () => {
 
+    document.title = "Register - " + Env.AppName
+
     useEffect(() => {
 
         //checklogin

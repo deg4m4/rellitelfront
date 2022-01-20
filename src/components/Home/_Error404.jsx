@@ -1,4 +1,7 @@
+import Env from "../Env"
 const Error404 = () => {
+
+    document.title = "404! Not Found - " + Env.AppName
 
     return (
         <>

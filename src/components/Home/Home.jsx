@@ -1,7 +1,6 @@
 import { Routes, Route, Redirect } from 'react-router-dom'
 import Header from './_Header'
 import Footer from './_Footer'
-import FrontPage from './_FrontPage'
 import Login from './_Login'
 import Register from './_Register'
 import ForgotPass from './_ForgotPass'
