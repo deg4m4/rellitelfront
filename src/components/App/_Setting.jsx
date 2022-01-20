@@ -187,10 +187,13 @@ const Setting = () => {
 
                     <div className="col-xl-12 order-xl-1">
                         <div className="card">
-                            
+
                             <div className="card-body">
                                 <form onSubmit={updatePageInfo}>
-                                    <h6 className="heading-small text-muted mb-4">Normal information</h6>
+                                    <div className="div d-flex">
+                                        <h6 className="heading-small text-muted mb-4">Normal information</h6>
+                                        <h6 className="heading-small ml-auto text-muted mb-4"><a href={Env.PageLink + pageInfo.page_slug} class="btn btn-primary btn-sm" target="_blank">Page <i class="fas fa-external-link-alt"></i></a></h6>
+                                    </div>
                                     <div className="pl-lg-4">
                                         <div class="alert slug-error hide alert-danger alert-dismissible fade show" role="alert">
                                             <span class="alert-text u-info-error" >
