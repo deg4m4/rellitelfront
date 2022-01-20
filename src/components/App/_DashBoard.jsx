@@ -6,6 +6,8 @@ import { useEffect } from "react/cjs/react.development"
 
 const DashBoard = (prop) => {
 
+    document.title = "Dashboard - " + Env.AppName
+    
     useEffect(() => {
         console.log(prop.userAna);
         if (prop.userAna.yesterday_earn == 0) {

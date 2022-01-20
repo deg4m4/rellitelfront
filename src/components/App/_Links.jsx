@@ -4,9 +4,9 @@ import Env from "../Env"
 import cookies from "../../module/cookies"
 import { useParams, Link, useNavigate } from "react-router-dom"
 const Links = () => {
+    document.title = "Links - " + Env.AppName
 
     // page, query
-
     const history = useNavigate();
 
     let getParams = useParams();

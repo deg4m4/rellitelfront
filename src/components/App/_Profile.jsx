@@ -7,6 +7,8 @@ import 'react-image-crop/dist/ReactCrop.css';
 
 const Profile = () => {
 
+    document.title = "Profile - " + Env.AppName
+
     var [userInfo, setUserInfo] = useState({ useremail: "exe@email.com", userfullname: "Jhon Hitman", userphone: "Phone No." })
 
     var [r1Info, setR1Info] = useState({

@@ -5,6 +5,8 @@ import cookies from "../../module/cookies"
 
 const NewLink = () => {
 
+    document.title = "New Link - " + Env.AppName
+
     var [getUri, setUri] = useState()
     var [getUriD, setUriD] = useState({ l_type: "", l_uri: "", l_name: "", l_des: "", pre_i: "", pre_e: "", thu_e: "", thu_i: "", l_visible: "", l_con: "" })
     var [uriInfo, sUriInfo] = useState({})

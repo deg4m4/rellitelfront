@@ -6,6 +6,8 @@ import { useParams, Link } from "react-router-dom"
 
 const EditLink = () => {
 
+    document.title = "Edit Link - " + Env.AppName
+
     let { linkSlug, pageNum, pageQuery } = useParams();
 
     var [getUri, setUri] = useState()

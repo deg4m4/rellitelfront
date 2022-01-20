@@ -6,6 +6,8 @@ import { useParams, Link } from "react-router-dom"
 
 const Delete = () => {
 
+    document.title = "Delete Link - " + Env.AppName
+
     let { linkSlug, pageNum, pageQuery } = useParams();
 
     function deleteLink(e) {

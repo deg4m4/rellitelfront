@@ -6,6 +6,9 @@ import cookies from "../../module/cookies"
 import 'react-image-crop/dist/ReactCrop.css';
 
 const Setting = () => {
+
+    document.title = "Page Setting - " + Env.AppName
+
     var [inputF, setIF] = useState({})
     var [pageInfo, setPageInfo] = useState({})
 

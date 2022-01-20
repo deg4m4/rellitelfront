@@ -1,6 +1,9 @@
 import Footer from "./_Footer"
+import Env from "../Env"
 
 const Support = () => {
+
+    document.title = "Support - " + Env.AppName
 
     return (
         <>

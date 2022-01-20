@@ -1,8 +1,9 @@
 import Footer from "./_Footer"
+import Env from "../Env"
 
 const Wallet = () => {
 
-
+    document.title = "Wallet - " + Env.AppName
 
     return (
         <>

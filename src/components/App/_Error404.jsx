@@ -1,10 +1,11 @@
 import Footer from "./_Footer"
 import 'react-image-crop/dist/ReactCrop.css';
 import { Link } from "react-router-dom";
+import Env from "../Env";
 
 const Error404 = () => {
 
-
+    document.title = "404! Not Found - " + Env.AppName
 
     return (
         <>
