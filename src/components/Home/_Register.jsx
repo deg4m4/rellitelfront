@@ -232,7 +232,7 @@ const Register = () => {
                                                     <div class="custom-control custom-control-alternative custom-checkbox">
                                                         <input class="custom-control-input reg-agree" onChange={changeInfo} name="agree" id="customCheckRegister" type="checkbox" />
                                                         <label class="custom-control-label" for="customCheckRegister">
-                                                            <span class="text-muted">I agree with the <a target="_blank" href={Env.PageLink + "pnp"}>Privacy Policy</a></span>
+                                                            <span class="text-muted">I agree to {Env.AppName} <a href={Env.PageLink + "terms"} target="_blank">Terms of Use</a> & <a href={Env.PageLink + "privacy"} target="_blank">Privacy Policy</a></span>
                                                         </label>
                                                     </div>
                                                 </div>
