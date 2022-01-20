@@ -49,7 +49,7 @@ const Header = () => {
                                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="media align-items-center">
                                         <span class="avatar avatar-sm rounded-circle">
-                                        <img alt={userInfo.userfullname} src={"https://ui-avatars.com/api/?bold=true&size=256&background=random&name=" + userInfo.userfullname} />
+                                            <img alt={userInfo.userfullname} src={"https://ui-avatars.com/api/?bold=true&size=256&background=random&name=" + userInfo.userfullname} />
                                             {/* <img alt={userInfo.userfullname} src={"https://ui-avatars.com/api/?bold=true&size=256&background=random&name=" + userInfo.userfullname} /> */}
                                         </span>
                                         <div class="media-body  ml-2  d-none d-lg-block">
@@ -66,17 +66,35 @@ const Header = () => {
                                         <span>My profile</span>
                                     </Link>
                                     <div class="dropdown-divider"></div>
-                                    <Link to="/logout" class="dropdown-item">
+                                    <a data-toggle="modal" data-target="#logoutMod" to="/logout" class="dropdown-item text-dark">
                                         <i class="fa fa-sign-out-alt"></i>
                                         <span>Logout</span>
-                                    </Link>
+                                    </a>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-
+            <div class="modal fade" id="logoutMod" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="logoutModLabel">Logout</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h2>Are You Sure You want to logout</h2>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <Link type="button" class="btn btn-primary" to="/logout">Logout</Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 

@@ -114,10 +114,10 @@ const Nav = () => {
                             <hr className="my-3" />
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/logout">
+                                    <a  data-toggle="modal" data-target="#logoutMod" className="nav-link" to="/logout">
                                         <i className="fa fa-sign-out-alt text-gray"></i>
                                         <span className="nav-link-text">Logout</span>
-                                    </NavLink>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
