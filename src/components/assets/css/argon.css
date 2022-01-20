@@ -29920,3 +29920,7 @@ input.datetimepicker[data-color='yellow'] + .bootstrap-datetimepicker-widget.dro
 .url-x{
     text-transform: none !important;
 }
+
+textarea{
+    text-transform: none !important;
+}
