@@ -78,7 +78,7 @@ const App = () => {
         }).catch((e) => {
 
             alert("Sorry")
-            alert(e)
+            //alert(e)
 
         })
 
