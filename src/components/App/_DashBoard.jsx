@@ -7,21 +7,21 @@ import { useEffect } from "react/cjs/react.development"
 const DashBoard = (prop) => {
 
     document.title = "Dashboard - " + Env.AppName
-    
+
     useEffect(() => {
         console.log(prop.userAna);
         if (prop.userAna.yesterday_earn == 0) {
             document.getElementById("y_earn").innerHTML = "no earning yesterday";
         } else {
             var inc = (((prop.userAna.today_earn - prop.userAna.yesterday_earn) / prop.userAna.yesterday_earn) * 100).toFixed(2);
-            document.getElementById("y_earn").innerHTML = "<span class='" + (inc > 0 ? "text-success" : "text-danger") + "'>" +(inc > 100 ? "100%+" : inc + "%") + "</span> Since Yesterday";
+            document.getElementById("y_earn").innerHTML = "<span class='" + (inc > 0 ? "text-success" : "text-danger") + "'>" + (inc > 100 ? "100%+" : inc + "%") + "</span> Since Yesterday";
         }
 
         if (prop.userAna.prev_7 == 0) {
             document.getElementById("p_earn").innerHTML = "no earning previous 7 days";
         } else {
             var inc = (((prop.userAna.last_7 - prop.userAna.prev_7) / prop.userAna.prev_7) * 100).toFixed(2);
-            document.getElementById("p_earn").innerHTML =  "<span class='" + (inc > 0 ? "text-success" : "text-danger") + "'>" +(inc > 100 ? "100%+" : inc + "%") + "</span> Since previous 7 days";
+            document.getElementById("p_earn").innerHTML = "<span class='" + (inc > 0 ? "text-success" : "text-danger") + "'>" + (inc > 100 ? "100%+" : inc + "%") + "</span> Since previous 7 days";
         }
 
         if (prop.userAna.lastm_earn == 0) {
@@ -37,7 +37,7 @@ const DashBoard = (prop) => {
         <>
 
             <div class="header background-cover-x pb-6">
-            <span className="mask bg-gradient-default opacity-7"></span>
+                <span className="mask bg-gradient-default opacity-7"></span>
                 <div class="container-fluid">
                     <div class="header-body">
                         <div class="row align-items-center py-4">
@@ -258,7 +258,7 @@ const DashBoard = (prop) => {
                             <div class="card-header border-0">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h3 class="mb-0">Notification</h3>
+                                        <h3 class="mb-0">News</h3>
                                     </div>
                                 </div>
                             </div>
@@ -266,27 +266,23 @@ const DashBoard = (prop) => {
                                 <table class="table align-items-center table-flush">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">Name</th>
-                                            <th scope="col"></th>
-                                            <th scope="col">Unique users</th>
-                                            <th scope="col">Bounce rate</th>
+                                            <th scope="col">&nbsp;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">
-                                                /argon/
-                                            </th>
-                                            <td>
-                                                4,569
-                                            </td>
-                                            <td>
-                                                340
-                                            </td>
-                                            <td>
-                                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                                            </td>
-                                        </tr>
+                                        {
+                                            prop.getNews.map((e) => {
+                                                if (e.title !== "") {
+                                                    return (
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <a target="_blank" href={e.url}>{e.title}</a>
+                                                            </th>
+                                                        </tr>
+                                                    )
+                                                }
+                                            })
+                                        }
                                     </tbody>
                                 </table>
                             </div>

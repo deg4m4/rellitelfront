@@ -33,6 +33,7 @@ const App = () => {
     const [topLink, setTopLink] = useState([])
     const [pageSlug, setPaSlug] = useState([])
     const [tMass, setTopMass] = useState(["", 0])
+    const [getNews, setNews] = useState([])
 
     useEffect(() => {
 
@@ -68,6 +69,7 @@ const App = () => {
                         }
                     }
                 }
+                setNews(res.user_analytics.user_news)
             }
             setPaSlug(res.user_analytics.p_slug);
             if (topL.length == 0) {
@@ -94,7 +96,7 @@ const App = () => {
 
                 <Routes>
 
-                    <Route path="/" element={<DashBoard userAna={userAna} chartData={chartData} topLink={topLink} pageSlug={pageSlug} tMass={tMass} />} />
+                    <Route path="/" element={<DashBoard userAna={userAna} chartData={chartData} topLink={topLink} pageSlug={pageSlug} tMass={tMass} getNews={getNews} />} />
                     <Route path="/links" element={<Links />} />
                     <Route path="/links/:page" element={<Links />} />
                     <Route path="/links/:page/:query" element={<Links />} />
