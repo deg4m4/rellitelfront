@@ -272,29 +272,29 @@ const Setting = () => {
                                             </div>
 
                                             <hr className="my-4" />
-                                            <h6 className="heading-small text-muted mb-4">Social information</h6>
+                                            <h6 className="heading-small text-muted mb-4 hide">Social information</h6>
 
-                                            <div className="col-lg-12">
+                                            <div className="col-lg-12 hide">
                                                 <div className="form-group">
                                                     <label className="form-control-label" htmlFor="input-email">Youtube Link</label>
                                                     <input onChange={changePageInfo} id="syt_i" disabled type="text" className="u-full-i form-control" name="uname" placeholder={pageInfo.s_yt} />
                                                 </div>
-                                            </div>
-                                            <div className="col-lg-12">
+                                            </div> 
+                                            <div className="col-lg-12 hide">
                                                 <div className="form-group">
                                                     <label className="form-control-label" htmlFor="input-email">Telegram Link</label>
                                                     <input onChange={changePageInfo} id="stg_i" disabled type="text" className="u-full-i form-control" name="uname" placeholder={pageInfo.s_tg} />
                                                 </div>
                                             </div>
 
-                                            <div className="col-lg-12">
+                                            <div className="col-lg-12 hide">
                                                 <div className="form-group">
                                                     <label className="form-control-label" htmlFor="input-email">Instagram Link</label>
                                                     <input onChange={changePageInfo} id="sig_i" disabled type="text" className="u-full-i form-control" name="uname" placeholder={pageInfo.s_ig} />
                                                 </div>
                                             </div>
 
-                                            <div className="col-lg-12">
+                                            <div className="col-lg-12 hide">
                                                 <div className="form-group">
                                                     <label className="form-control-label" htmlFor="input-email">Facebook Link</label>
                                                     <input onChange={changePageInfo} id="sfb_i" disabled type="text" className="u-full-i form-control" name="uname" placeholder={pageInfo.s_fb} />
